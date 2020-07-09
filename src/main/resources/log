@@ -1,0 +1,20 @@
+020-07-01 10:44:14.698 [TID:N/A] WARN  [org.apache.catalina.loader.WebappClassLoaderBase] 
+
+The web application [ROOT] appears to have started a thread named [qos-worker-3-32] 
+but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Thread.sleep(Native Method)
+ io.netty.util.concurrent.SingleThreadEventExecutor.confirmShutdown(SingleThreadEventExecutor.java:650)
+ io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:362)
+ io.netty.util.concurrent.SingleThreadEventExecutor$2.run(SingleThreadEventExecutor.java:112)
+ io.netty.util.concurrent.DefaultThreadFactory$DefaultRunnableDecorator.run(DefaultThreadFactory.java:137)
+ java.lang.Thread.run(Thread.java:748)
+2020-07-01 10:44:14.699 [TID:N/A] WARN  [org.apache.catalina.loader.WebappClassLoaderBase] The web application [ROOT] appears to have started a thread named [Exporter-Unexport-thread-1] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Thread.sleep(Native Method)
+ org.apache.dubbo.registry.integration.RegistryProtocol$ExporterChangeableWrapper.lambda
+    $unexport$0(RegistryProtocol.java:794)
+     org.apache.dubbo.registry.integration.RegistryProtocol$ExporterChangeableWrapper$$Lambda$167/495365693.run(Unknown Source)
+ java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+ java.util.concurrent.FutureTask.run(FutureTask.java:266)
+ java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+ java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+ java.lang.Thread.run(Thread.java:748)

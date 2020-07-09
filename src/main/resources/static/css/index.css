@@ -1,0 +1,19 @@
+.btn-outline-info{
+    margin: auto;
+}
+.modal-title{
+    margin: auto;
+}
+.badge badge-pill badge-success{
+    display: none;
+}
+/*.card{
+    width: 30%;
+    margin: 4px 0px 2px 0px;
+}*/
+.list-card-top {
+    margin-top: 0%;
+}
+#listCard{
+    width: 30%;
+}

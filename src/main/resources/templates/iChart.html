@@ -1,0 +1,43 @@
+<!DOCTYPE html >
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+<head >
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/echarts.min.js" type="text/javascript"></script>
+</head>
+<body>
+
+    <div id="main" style="width: 600px;height: 400px;">
+
+    </div>
+
+<script>
+    let main = $(".main")
+    let myChart = echarts.init(document.getElementById("main"));
+    var options = {
+        title: {
+            text:"第一个实例"
+        },
+        tooltip:{
+
+        },
+        legend:{
+            data:['销量']
+        },
+        xAxis:{
+            data:['衬衫','羊毛','鸭','鸭蛋']
+        },
+        yAxis:{
+
+        },
+        series:[{
+            name:'销量',
+            type:'bar',
+            data:[6,10,20,5]
+        }]
+    };
+    myChart.setOption(options);
+</script>
+</body>
+</html>
