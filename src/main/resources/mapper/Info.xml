@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.demo.dao.Info">
+    <select id="findInfo" resultType="java.util.Map">
+        select time_d,
+            group_concat(time_h separator ',') as time_h,
+            group_concat(good_number_total separator ',') as good_number_total,
+            group_concat(bad_number_total separator ',') as bad_number_total,mid
+        from
+            v_total
+        where time_d = '20200706' and mid = '1'
+        group by time_d,mid
+    </select>
+</mapper>

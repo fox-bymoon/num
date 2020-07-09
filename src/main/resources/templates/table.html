@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+</head>
+<body>
+<div id="container" style="width: 550px; height: 400px; margin: 0 auto"></div>
+<script language="JavaScript">
+
+    /*window.onload(function () {
+
+    })*/
+    $(document).ready(function() {
+        let x  ;
+        let y;
+        $.ajax({
+            type:"post",
+            url:"http://localhost:8092/findAllInfo",
+            async:false,
+            dataType:"json",
+            contentType:"application/json",
+            success:function (data) {
+                let timeH = data.time_h;
+                let goodNumberTotal = data.good_number_total;
+                /*x = "["+timeH+"]";
+                y = "["+goodNumberTotal+"]";*/
+                x = timeH.split(",")
+                y = goodNumberTotal.split(",")
+                y = y.map(Number)
+                console.log(x,y)
+            }
+        });
+
+        let title = {
+            text: '当日良率不良率一览'
+        };
+        let subtitle = {
+            text: '测试'
+        };
+        let xAxis = {
+            categories: x
+        };
+        let yAxis = {
+            title: {
+                text: '数量'
+            },
+            plotLines: [{
+                value: 0,
+                width: 1,
+                color: '#808080'
+            }]
+        };
+
+        let tooltip = {
+            valueSuffix: '个'/*'\xB0C'*/
+        }
+
+        let legend = {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'middle',
+            borderWidth: 0
+        };
+
+        let series =  [
+            {
+                name: '良品',
+                data: y
+            }/*,{
+                name: '不良品',
+                data: [5,20,15,30,33,52,10]
+            },
+            {
+                name: 'New York',
+                data: [-0.2, 0.8, 5.7, 11.3, 17.0, 22.0, 24.8,
+                    24.1, 20.1, 14.1, 8.6, 2.5]
+            },
+            {
+                name: 'London',
+                data: [ 17.0,
+                    16.6, 14.2, 10.3, 6.6, 4.8]
+            }*/
+        ];
+
+        let json = {};
+
+        json.title = title;
+        json.subtitle = subtitle;
+        json.xAxis = xAxis;
+        json.yAxis = yAxis;
+        json.tooltip = tooltip;
+        json.legend = legend;
+        json.series = series;
+
+        $('#container').highcharts(json);
+    });
+</script>
+</body>
+</html>
