@@ -18,7 +18,8 @@
         let y;
         $.ajax({
             type:"post",
-            url:"http://localhost:8092/findAllInfo",
+            url:"http://localhost:8092/findLineChart",
+            data:{"mid":1,"sysTime":"20200706"},
             async:false,
             dataType:"json",
             contentType:"application/json",
