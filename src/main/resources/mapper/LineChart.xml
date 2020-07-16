@@ -7,13 +7,13 @@
 	        (SELECT time_h as time_h FROM v_total where time_d = #{sysTime} and mid = #{mid} ORDER BY time_h) a
     </select>
     <!-- 查询良品-->
-    <select id="findNumTime" parameterType="java.lang.String" resultType="java.util.Map">
+    <select id="findNumGood" parameterType="java.lang.String" resultType="java.util.Map">
         SELECT GROUP_CONCAT(a.good_number_total) as newtime FROM
 	        (SELECT good_number_total,time_h as time_h FROM v_total where time_d = #{sysTime} and mid = #{mid} ORDER BY time_h) a
 
     </select>
     <!-- 查询不良品-->
-    <select id="findNumTime" parameterType="java.lang.String" resultType="java.util.Map">
+    <select id="findNumBad" parameterType="java.lang.String" resultType="java.util.Map">
         SELECT GROUP_CONCAT(a.bad_number_total) as newtime FROM
 	        (SELECT bad_number_total,time_h FROM v_total where time_d = #{sysTime} and mid = #{mid} ORDER BY time_h) a
     </select>
